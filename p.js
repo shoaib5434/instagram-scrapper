@@ -9,7 +9,7 @@ app.use(cors())
 
 async function main(postUrl) {
   try {
-    const browser = await puppeteer.launch({headless : true});
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const [page] = await browser.pages();
 
     await page.goto(postUrl, { waitUntil: 'networkidle0' });
@@ -63,6 +63,6 @@ app.get("/", async (req,res) => {
   })
 })
 
-app.listen(3000,() => {
-  console.log("Listning....")
+app.listen(process.env.PORT || 3000,() => {
+  console.log("Running.....")
 })
