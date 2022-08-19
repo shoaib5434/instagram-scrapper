@@ -42,7 +42,7 @@ async function main(postUrl) {
     //   response.data.comments.push(obj);
     // }
 
-    // await browser.close();
+    await browser.close();
 
     return response;
   } catch (err) {
